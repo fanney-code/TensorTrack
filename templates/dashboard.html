@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Interactive Data Upload Dashboard</title>
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="/static/Screenshot 2024-11-03 065321.png" alt="">
+            </div>
+            <span class="logo_name">Dashboard</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#" id="dashboardLink" class="active">
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                <li><a href="#" id="loadData">
+                    <span class="link-name">Load Data</span>
+                </a></li>
+                <li><a href="#" id="generateReport">
+                    <span class="link-name">Generate Report</span>
+                </a></li>
+                <li><a href="#" id="generateChart">
+                    <span class="link-name">Generate Chart</span>
+                </a></li>
+                <li>
+                    <a href="#" id="settingsToggle">
+                        <span class="link-name">Settings</span>
+                    </a>
+                    <div id="settingsOptions" style="display: none;">
+                        <span>Mode:</span>
+                        <button id="darkModeToggle"><i class="uil uil-moon"></i></button>
+                    </div>
+                </li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="{{ url_for('logout') }}">
+                    <span class="link-name">Logout</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <div class="search-box">
+                <input type="text" placeholder="Search here...">
+            </div>
+        </div>
+
+        <div class="dash-content" id="dashboardContent">
+            <div class="overview">
+                <div class="title">
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <!-- Empty boxes since we removed total likes, comments, etc. -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive File Upload Section -->
+        <div id="fileUploadSection" class="upload-section" style="display: none;">
+            <div class="upload-container">
+                <h2>Upload Your File</h2>
+                <p>Drag and drop your CSV or TXT file here or click to select it.</p>
+                <input type="file" id="fileInput" accept=".csv, .txt" style="display: none;">
+                <button id="uploadButton">Upload</button>
+                <label for="fileInput" class="upload-area">
+                    Click here to select a file
+                </label>
+            </div>
+        </div>
+
+        <!-- Report Section -->
+        <div id="reportSection" style="display: none;">
+            <h2>Report</h2>
+            <button id="downloadReportButton" class="download-button">Download Report as PDF</button>
+            <p id="reportMessage" style="margin-top: 10px;"></p>
+        </div>
+
+        <!-- Chart Section -->
+        <div id="chartSection" style="display: none;">
+            <h2>Chart</h2>
+            <img id="chartImage" alt="Chart will be displayed here" style="max-width: 100%;">
+        </div>
+
+        <!-- Last Uploaded Data Section -->
+        <h2>Last Uploaded Data</h2>
+        <div id="lastDataSection" style="display: none;">
+            <table border="1" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Last Uploaded Data</th>
+                    </tr>
+                </thead>
+                <tbody id="lastDataBody">
+                    <!-- Last uploaded data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

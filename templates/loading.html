@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Loading...</title>
+</head>
+<body>
+    <div class="loading-page">
+        <img src="/static/Screenshot 2024-11-03 065321.png" alt="Logo" class="logo" width="250px">
+        <div class="counter">
+            <p>Loading...</p>
+            <h1 id="percentage">0%</h1>
+            <hr>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var counter = 0;
+            var interval = setInterval(function() {
+                $("#percentage").text(counter + "%");
+                $(".loading-page .counter hr").css("width", counter + "%");
+                counter++;
+                
+                if (counter > 100) {
+                    clearInterval(interval);
+                    window.location.href = '/'; // Redirect to dashboard after loading
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>

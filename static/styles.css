@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4; /* Light mode background */
+    color: #111010; /* Light mode text color */
+    display: flex;
+}
+
+nav {
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    background-color: #8fb0ba;
+    border-right: 1px solid #e6e5e5;
+    transition: width 0.3s;
+}
+
+.menu-items {
+    margin-top: 20px;
+}
+
+.menu-items ul {
+    list-style: none;
+}
+
+.menu-items a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #111010;
+    transition: background 0.3s;
+}
+
+.menu-items a:hover {
+    background-color: #f0f0f0;
+}
+
+.dashboard {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+.upload-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container {
+    text-align: center;
+}
+
+.upload-container h2 {
+    margin-bottom: 10px;
+}
+
+.upload-container p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.upload-area {
+    display: inline-block;
+    padding: 20px;
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: #e9f5ff;
+}
+
+#uploadButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#uploadButton:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #2e2e2e;
+    color: white;
+}
+
+body.dark nav {
+    background-color: #1e1e1e;
+}
+
+body.dark .menu-items a {
+    color: white; /* Change text color to white in dark mode */
+}
